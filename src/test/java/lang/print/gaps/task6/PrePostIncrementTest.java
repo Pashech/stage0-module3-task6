@@ -16,8 +16,10 @@ class PrePostIncrementTest extends BaseIOTest {
 
     @Test
     void mainMeetsRequirements() {
-        String expected = "Expected x is 40, x = 40" + "\n" +
-                "The updated value of a = 6, b = 7, c = 13 and d = 15" + "\n";
+        String expected = """
+                        Expected x is 40, x = 40
+                        The updated value of a = 6, b = 7, c = 13 and d = 15
+                        """;
 
         PrePostIncrement.main(null);
 
@@ -31,7 +33,7 @@ class PrePostIncrementTest extends BaseIOTest {
         List<String> castedRows = strings.stream()
                 .filter(line ->
                         line.contains("+ 1") || line.contains("+1"))
-                .collect(Collectors.toList());
+                .toList();
 
         assertEquals(0, castedRows.size());
     }
